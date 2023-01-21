@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fluffy cats</title>
+    <meta property="og:title" content="Fluffy cats" />
+    <meta name="description" content="Fluffy cats" />
+    <meta name="keywords" content="Fluffy cats" />
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" type="text/css" href="main/css/style.css?v=1" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <script src="main/js/cats.js" defer></script>
+    <script src="main/js/popup.js" defer></script>
+    <script src="main/js/script.js?v=1" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container d-fl">
+          <a href="/" class="logo d-fl">
+            <div class="logo__img">
+              <img src="main/img/icons/logo-Cat.svg" alt="fluffy cats" />
+            </div>
+            <h3 class="logo__title">Fluffy cats</h3>
+          </a>
+
+          <button class="btn__add-cats">Add cat</button>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section__cats">
+          <h2 class="visually-hidden">Список котиков</h2>
+          <article class="article__cats cats__container">
+            <div class="list__cats">
+              <div class="card d-fl-col">
+                <div class="card__img">
+                  <img
+                    src="https://celes.club/uploads/posts/2022-10/1666801421_5-celes-club-p-kot-s-tablichkoi-oboi-5.jpg"
+                    alt="Драл обои"
+                  />
+                  <div class="card__heart">
+                    <img src="main/img/icons/heart.svg" alt="heart" />
+                  </div>
+                </div>
+                <h6 class="card__name">Fluffy cat</h6>
+                <p class="card__description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
+                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
+                </p>
+                <div class="card__info d-fl">
+                  <p class="card__year">15 years</p>
+                  <p class="card__rating">5/10</p>
+                </div>
+              </div>
+
+              <div class="card d-fl-col">
+                <div class="card__img">
+                  <img
+                    src="https://img2.labirint.ru/rcimg/af9d101803eef2471ef4b214b38bbcb3/960x540/books67/665560/ph_001.jpg?1564141284"
+                    alt="Драл обои"
+                  />
+                </div>
+                <h6 class="card__name">Fluffy cat</h6>
+                <p class="card__description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="card__info d-fl">
+                  <p class="card__year">15 years</p>
+                  <p class="card__rating">5/10</p>
+                </div>
+              </div>
+
+              <div class="card d-fl-col">
+                <div class="card__img">
+                  <img
+                    src="https://celes.club/uploads/posts/2022-10/thumbs/1666801512_22-celes-club-p-kot-s-tablichkoi-oboi-27.jpg"
+                    alt="Драл обои"
+                  />
+                </div>
+                <h6 class="card__name">Fluffy cat</h6>
+                <p class="card__description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
+                </p>
+                <div class="card__info d-fl">
+                  <p class="card__year">15 years</p>
+                  <p class="card__rating">5/10</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container d-fl">
+          <p class="copyright">©2023 Made by Name</p>
+        </div>
+      </footer>
+
+      <div class="popup d-fl">
+        <div class="popup__main d-fl">
+          <div class="popup__main-form d-fl-col">
+            <div class="popup__form-top d-fl">
+              <a href="/" class="logo__img">
+                <img
+                  src="main/img/icons/logo-Cat-Black.svg"
+                  alt="fluffy cats"
+                />
+              </a>
+
+              <div class="popup__close">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="form__content d-fl-col">
+              <h6 class="form__title">Добавить питомца</h6>
+
+              <form class="form d-fl-col" id="popup-form-cat">
+                <input
+                  type="number"
+                  class="form__input"
+                  name="id"
+                  min="1"
+                  required
+                  placeholder="id"
+                />
+                <input
+                  type="number"
+                  class="form__input"
+                  name="age"
+                  placeholder="Возраст"
+                />
+                <input
+                  type="text"
+                  class="form__input"
+                  name="name"
+                  required
+                  placeholder="Имя"
+                />
+                <input
+                  type="number"
+                  class="form__input"
+                  name="rate"
+                  placeholder="Рейтинг (0-10)"
+                  min="0"
+                  max="10"
+                />
+                <textarea
+                  name="description"
+                  class="form__input form__textarea"
+                  placeholder="Описание"
+                ></textarea>
+                <label class="custom-checkbox">
+                  <input type="checkbox" value="value-1" />
+                  <span>Любимчик</span>
+                </label>
+                <input
+                  type="url"
+                  class="form__input form__input_image"
+                  name="img_link"
+                  placeholder="Ссылка на фото"
+                />
+                <button type="submit" class="form__btn btn">
+                  Добавить котика
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="popup__main-photo">
+            <img src="main/img/photo/popup.jpg" alt="popup" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

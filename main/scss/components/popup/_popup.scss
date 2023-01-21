@@ -1,0 +1,200 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  visibility: hidden;
+  padding: rem(15);
+
+  &__active {
+    visibility: visible;
+  }
+}
+
+.popup__main {
+  background-color: $colorMain;
+  max-width: rem(900);
+  width: 100%;
+  margin: auto;
+  padding: rem(15);
+  border-radius: rem(10);
+  -webkit-border-radius: rem(10);
+  -moz-border-radius: rem(10);
+  -ms-border-radius: rem(10);
+  -o-border-radius: rem(10);
+  gap: rem(20);
+}
+
+.popup__main-form {
+  flex: 1;
+  width: 50%;
+}
+.popup__form-top {
+  justify-content: space-between;
+  align-items: center;
+}
+.popup__close {
+  width: rem(35);
+  height: rem(35);
+  position: relative;
+  align-self: center;
+  cursor: pointer;
+
+  span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: rem(2.5);
+    background-color: $colorBlack;
+
+    &:first-child {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+    }
+  }
+}
+
+.logo__img {
+}
+.popup__main-photo {
+  width: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.form__content {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.form__title {
+  padding: rem(20) 0;
+  font-size: rem(18);
+}
+
+.form {
+  gap: rem(15);
+}
+
+.form__input {
+  display: flex;
+  flex: 1;
+  border: rem(1) solid $colorBlack;
+  padding: rem(15) rem(10);
+  border-radius: rem(5);
+  -webkit-border-radius: rem(5);
+  -moz-border-radius: rem(5);
+  -ms-border-radius: rem(5);
+  -o-border-radius: rem(5);
+  font-size: rem(16);
+  resize: none;
+}
+
+/* для элемента input c type="checkbox" */
+.custom-checkbox > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox > span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox > span::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox > input:not(:disabled):not(:checked) + span:hover::before {
+  border-color: #252525;
+}
+
+/* стили для активного чекбокса (при нажатии на него) */
+.custom-checkbox > input:not(:disabled):active + span::before {
+  background-color: #252525;
+  border-color: #252525;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox > input:focus + span::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox > input:focus:not(:checked) + span::before {
+  border-color: #252525;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox > input:checked + span::before {
+  border-color: #000000;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox > input:disabled + span::before {
+  background-color: #252525;
+}
+
+.form__btn {
+  border: rem(1) solid $colorBlack;
+  padding: rem(15) rem(10);
+  border-radius: rem(5);
+  -webkit-border-radius: rem(5);
+  -moz-border-radius: rem(5);
+  -ms-border-radius: rem(5);
+  -o-border-radius: rem(5);
+  font-size: rem(16);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $colorBlack;
+    color: $colorMain;
+  }
+}

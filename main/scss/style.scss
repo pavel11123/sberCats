@@ -1,0 +1,66 @@
+@use "sass:math";
+
+@import "./components/assets/base";
+@import "./components/assets/mixins";
+@import "./components/assets/fonts";
+
+// Переменные
+// $font-small:20px;
+// $font-big:40px;
+
+// Шаблон
+// %tpl-border{
+// 	border-bottom: 10px;
+// }
+// Для того чтобы подключить шаблон нужно вставить в класс @extend %tpl-border;
+
+// Миксин
+// @mixin font-color($f, $c) {
+// 	font-size: $f;
+// 	color: $c;
+// }
+// Чтобы подключить миксин @include adaptiv-font(10,40,320);
+
+//Математчиеские свойства
+//width: 300px / 960px * 100%;
+
+/*------------------ОБОЛОЧКА------------------*/
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: #040404;
+}
+
+[class*="__container"] {
+  width: 100%;
+  max-width: rem(1170);
+  margin: 0 auto;
+  padding: 0 rem(15);
+}
+/*------------------ОБОЛОЧКА------------------*/
+
+/*------------------HEADER------------------*/
+@import "./components/header/header";
+/*------------------HEADER------------------*/
+
+/*------------------MAIN------------------*/
+.main {
+  flex: 1 1 auto;
+}
+
+/*------------------CARD------------------*/
+@import "./components/sectionCats/sectionCats";
+/*------------------CARD------------------*/
+
+/*------------------MAIN------------------*/
+
+/*------------------FOOTER------------------*/
+@import "./components/footer/footer";
+/*------------------FOOTER------------------*/
+
+/*------------------POPUP------------------*/
+@import "./components/popup/popup";
+/*------------------POPUP------------------*/

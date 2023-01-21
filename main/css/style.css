@@ -1,0 +1,510 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-size: inherit;
+  -webkit-appearance: none;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+hr {
+  border: none;
+  background-color: #a0a1a1;
+  color: #a0a1a1;
+  height: 0.8px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 4.4444444444vw;
+  }
+}
+
+.d-fl {
+  display: flex;
+}
+
+.d-fl-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-fl-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.d-fl-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-fl-wrap--reverse {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/*------------------ОБОЛОЧКА------------------*/
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: #040404;
+}
+
+[class*=__container] {
+  width: 100%;
+  max-width: 73.125rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+/*------------------ОБОЛОЧКА------------------*/
+/*------------------HEADER------------------*/
+.header {
+  padding: 0.9375rem 0;
+}
+
+.header__container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  gap: 0.9375rem;
+}
+
+.logo__img {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+.logo__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.logo__title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.03125rem;
+  align-self: center;
+}
+
+.btn__add-cats {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 0.0625rem solid #ffffff;
+  border-radius: 0.9375rem;
+  -webkit-border-radius: 0.9375rem;
+  -moz-border-radius: 0.9375rem;
+  -ms-border-radius: 0.9375rem;
+  -o-border-radius: 0.9375rem;
+  padding: 0.4375rem 1.5625rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.btn__add-cats:hover {
+  color: #ffffff;
+  background: #040404;
+}
+
+/*------------------HEADER------------------*/
+/*------------------MAIN------------------*/
+.main {
+  flex: 1 1 auto;
+}
+
+/*------------------CARD------------------*/
+.section__cats {
+  padding: 6.25rem 0;
+}
+
+.list__cats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+  gap: 0.9375rem;
+}
+
+/*------------------CARD------------------*/
+.card {
+  background-color: #ffffff;
+  padding: 0.9375rem;
+  border-radius: 0.625rem;
+  -webkit-border-radius: 0.625rem;
+  -moz-border-radius: 0.625rem;
+  -ms-border-radius: 0.625rem;
+  -o-border-radius: 0.625rem;
+  gap: 0.9375rem;
+}
+
+.card__img {
+  padding: 0 0 80% 0;
+  position: relative;
+}
+.card__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card__heart {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  cursor: pointer;
+}
+.card__heart img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.card__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.card__description {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+}
+
+.card__info {
+  flex: 0 0 auto;
+  justify-content: space-between;
+}
+
+.card__year {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card__rating {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/*------------------CARD------------------*/
+/*------------------CARD------------------*/
+/*------------------MAIN------------------*/
+/*------------------FOOTER------------------*/
+.footer {
+  flex: 0 0 auto;
+  padding: 0.9375rem 0;
+}
+
+.copyright {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+/*------------------FOOTER------------------*/
+/*------------------POPUP------------------*/
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  visibility: hidden;
+  padding: 0.9375rem;
+}
+.popup__active {
+  visibility: visible;
+}
+
+.popup__main {
+  background-color: #ffffff;
+  max-width: 56.25rem;
+  width: 100%;
+  margin: auto;
+  padding: 0.9375rem;
+  border-radius: 0.625rem;
+  -webkit-border-radius: 0.625rem;
+  -moz-border-radius: 0.625rem;
+  -ms-border-radius: 0.625rem;
+  -o-border-radius: 0.625rem;
+  gap: 1.25rem;
+}
+
+.popup__main-form {
+  flex: 1;
+  width: 50%;
+}
+
+.popup__form-top {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup__close {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  position: relative;
+  align-self: center;
+  cursor: pointer;
+}
+.popup__close span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 0.15625rem;
+  background-color: #000000;
+}
+.popup__close span:first-child {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+.popup__close span:last-child {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+.popup__main-photo {
+  width: 50%;
+}
+.popup__main-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.form__content {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.form__title {
+  padding: 1.25rem 0;
+  font-size: 1.125rem;
+}
+
+.form {
+  gap: 0.9375rem;
+}
+
+.form__input {
+  display: flex;
+  flex: 1;
+  border: 0.0625rem solid #000000;
+  padding: 0.9375rem 0.625rem;
+  border-radius: 0.3125rem;
+  -webkit-border-radius: 0.3125rem;
+  -moz-border-radius: 0.3125rem;
+  -ms-border-radius: 0.3125rem;
+  -o-border-radius: 0.3125rem;
+  font-size: 1rem;
+  resize: none;
+}
+
+/* для элемента input c type="checkbox" */
+.custom-checkbox > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox > span {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox > span::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox > input:not(:disabled):not(:checked) + span:hover::before {
+  border-color: #252525;
+}
+
+/* стили для активного чекбокса (при нажатии на него) */
+.custom-checkbox > input:not(:disabled):active + span::before {
+  background-color: #252525;
+  border-color: #252525;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox > input:focus + span::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox > input:focus:not(:checked) + span::before {
+  border-color: #252525;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox > input:checked + span::before {
+  border-color: #000000;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox > input:disabled + span::before {
+  background-color: #252525;
+}
+
+.form__btn {
+  border: 0.0625rem solid #000000;
+  padding: 0.9375rem 0.625rem;
+  border-radius: 0.3125rem;
+  -webkit-border-radius: 0.3125rem;
+  -moz-border-radius: 0.3125rem;
+  -ms-border-radius: 0.3125rem;
+  -o-border-radius: 0.3125rem;
+  font-size: 1rem;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  font-weight: 600;
+}
+.form__btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/*------------------POPUP------------------*/

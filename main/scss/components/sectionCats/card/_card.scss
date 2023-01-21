@@ -1,0 +1,61 @@
+.card {
+  background-color: $colorMain;
+  padding: rem(15);
+  border-radius: rem(10);
+  -webkit-border-radius: rem(10);
+  -moz-border-radius: rem(10);
+  -ms-border-radius: rem(10);
+  -o-border-radius: rem(10);
+  gap: rem(15);
+}
+
+.card__img {
+  padding: 0 0 80% 0;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.card__heart {
+  position: absolute;
+  top: rem(0);
+  right: rem(0);
+  width: rem(30);
+  height: rem(30);
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.card__name {
+  font-size: rem(18);
+  font-weight: 600;
+}
+.card__description {
+  flex: 1 1 auto;
+  font-size: rem(14);
+}
+.card__info {
+  flex: 0 0 auto;
+  justify-content: space-between;
+}
+
+.card__year {
+  font-size: rem(16);
+  font-weight: 600;
+}
+.card__rating {
+  font-size: rem(16);
+  font-weight: 600;
+}
