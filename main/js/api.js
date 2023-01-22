@@ -47,15 +47,14 @@ const url = "https://cats.petiteweb.dev/api/single/:user/show"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
 const templateCardCat = document.querySelector("#card-template"); // template card cats
+let cardImg, cardName, cardDescription, cardYear, cardRating;
 
-// create function
+// function for request and add data for card
 async function fetchHandler() {
   // do error checking with try catch
   try {
     const response = await fetch(url);
     const data = await response.json();
-
-    let cardImg, cardName, cardDescription, cardYear, cardRating;
 
     data.forEach((element) => {
       let contentCatsCard = templateCardCat.content
