@@ -23,6 +23,7 @@
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
 
+    <script src="main/js/api.js" defer></script>
     <script src="main/js/cats.js" defer></script>
     <script src="main/js/popup.js" defer></script>
     <script src="main/js/script.js?v=1" defer></script>
@@ -46,62 +47,26 @@
           <h2 class="visually-hidden">Список котиков</h2>
           <article class="article__cats cats__container">
             <div class="list__cats">
-              <div class="card d-fl-col">
-                <div class="card__img">
-                  <img
-                    src="https://celes.club/uploads/posts/2022-10/1666801421_5-celes-club-p-kot-s-tablichkoi-oboi-5.jpg"
-                    alt="Драл обои"
-                  />
-                  <div class="card__heart">
-                    <img src="main/img/icons/heart.svg" alt="heart" />
+              <template id="card-template">
+                <div class="card d-fl-col">
+                  <div class="card__img">
+                    <img src="" alt="Драл обои" />
+                    <div class="card__heart">
+                      <img src="main/img/icons/heart.svg" alt="heart" />
+                    </div>
+                  </div>
+                  <h6 class="card__name">Fluffy cat</h6>
+                  <p class="card__description">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Ipsum sed, dolore exercitationem quas aliquam modi facilis.
+                    Ipsum sed, dolore exercitationem quas aliquam modi facilis.
+                  </p>
+                  <div class="card__info d-fl">
+                    <p class="card__year">15 years</p>
+                    <p class="card__rating">5/10</p>
                   </div>
                 </div>
-                <h6 class="card__name">Fluffy cat</h6>
-                <p class="card__description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
-                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
-                </p>
-                <div class="card__info d-fl">
-                  <p class="card__year">15 years</p>
-                  <p class="card__rating">5/10</p>
-                </div>
-              </div>
-
-              <div class="card d-fl-col">
-                <div class="card__img">
-                  <img
-                    src="https://img2.labirint.ru/rcimg/af9d101803eef2471ef4b214b38bbcb3/960x540/books67/665560/ph_001.jpg?1564141284"
-                    alt="Драл обои"
-                  />
-                </div>
-                <h6 class="card__name">Fluffy cat</h6>
-                <p class="card__description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </p>
-                <div class="card__info d-fl">
-                  <p class="card__year">15 years</p>
-                  <p class="card__rating">5/10</p>
-                </div>
-              </div>
-
-              <div class="card d-fl-col">
-                <div class="card__img">
-                  <img
-                    src="https://celes.club/uploads/posts/2022-10/thumbs/1666801512_22-celes-club-p-kot-s-tablichkoi-oboi-27.jpg"
-                    alt="Драл обои"
-                  />
-                </div>
-                <h6 class="card__name">Fluffy cat</h6>
-                <p class="card__description">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Ipsum sed, dolore exercitationem quas aliquam modi facilis.
-                </p>
-                <div class="card__info d-fl">
-                  <p class="card__year">15 years</p>
-                  <p class="card__rating">5/10</p>
-                </div>
-              </div>
+              </template>
             </div>
           </article>
         </section>
