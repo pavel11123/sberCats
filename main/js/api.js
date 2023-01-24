@@ -42,7 +42,7 @@
 // }
 
 // const api = new API(CONFIG_API);
-const url = "https://cats.petiteweb.dev/api/single/:user/show"; // our link api
+const url = "https://cats.petiteweb.dev/api/single/:user"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
 const templateCardCat = document.querySelector("#card-template"); // template card cats
@@ -52,7 +52,7 @@ let cardImg, cardName, cardDescription, cardYear, cardRating;
 async function fetchHandler() {
   // do error checking with try catch
   try {
-    const response = await fetch(url);
+    const response = await fetch(`${url}/show`);
     const data = await response.json();
 
     data.forEach((element) => {
@@ -85,6 +85,20 @@ async function fetchHandler() {
   } catch (error) {
     console.log(error);
   }
+
+  // POST API
+  // let fetchData = {
+  //   method: "POST",
+  //   body: data,
+  //   headers: new Headers(),
+  // };
+
+  // try {
+  //   const newCat = await fetch(`${url}/add`, fetchData);
+  //   const dataCat = await newCat.json();
+  // } catch (error) {
+  //   console.log(error);
+  // }
 }
 
 fetchHandler();
