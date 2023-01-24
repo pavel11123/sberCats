@@ -42,7 +42,6 @@
 // }
 
 // const api = new API(CONFIG_API);
-
 const url = "https://cats.petiteweb.dev/api/single/:user/show"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
@@ -63,6 +62,9 @@ async function fetchHandler() {
 
       // transfer data for our tag
       cardImg = templateCardCat.content.querySelector(".card__img img");
+      //add attribute data for lazy load
+      // cardImg.setAttribute("data", element.image);
+      // console.log(cardImg);
       cardImg.src = element.image;
 
       cardName = templateCardCat.content.querySelector(".card__name");
