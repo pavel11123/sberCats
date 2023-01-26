@@ -62,23 +62,53 @@ async function fetchHandler() {
 
       // transfer data for our tag
       cardImg = templateCardCat.content.querySelector(".card__img img");
+
       //add attribute data for lazy load
       // cardImg.setAttribute("data", element.image);
       // console.log(cardImg);
-      cardImg.src = element.image;
+
+      // checking that element.rate is not empty
+      if (element.image === undefined) {
+        cardImg.src = "main/img/photo/cat-1.png";
+      } else {
+        cardImg.src = element.image;
+      }
 
       cardName = templateCardCat.content.querySelector(".card__name");
-      cardName.textContent = element.name;
+      // checking that element.name is not empty
+      if (element.name === undefined) {
+        cardName.textContent = "Жульен";
+      } else {
+        cardName.textContent = element.name;
+      }
 
       cardDescription =
         templateCardCat.content.querySelector(".card__description");
-      cardDescription.textContent = element.description;
+      // checking that element.age is not empty
+      if (element.description === undefined) {
+        cardDescription.textContent =
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum sed, dolore exercitationem quas aliquam modi facilis. Ipsum sed, dolore exercitationem quas aliquam modi facilis.";
+      } else {
+        cardDescription.textContent = element.description;
+      }
 
+      // checking that element.age is not empty
       cardYear = templateCardCat.content.querySelector(".card__year");
-      cardYear.textContent = element.age + " years";
+      if (element.age === undefined) {
+        cardYear.textContent = "0 years";
+      } else {
+        cardYear.textContent = element.age + " years";
+      }
 
       cardRating = templateCardCat.content.querySelector(".card__rating");
-      cardRating.textContent = element.rate + "/10";
+      // checking that element.rate is not empty
+      if (element.rate === undefined) {
+        cardRating.textContent = "0/10";
+      } else {
+        cardRating.textContent = element.rate + "/10";
+      }
+
+      // console.log(element.rate);
 
       listCats.append(contentCatsCard);
     });
