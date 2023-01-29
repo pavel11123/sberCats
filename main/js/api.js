@@ -1,47 +1,45 @@
-// ## API сервера
+// базовый fetch с методом get для получения данных
+// fetch("https://cats.petiteweb.dev/api/single/:user/show")
+//   .then((response) => {
+//     console.log(response);
+//     return response.json();
+//   })
+//   .then((data) => {
+//     data.forEach((element) => {
+//       console.log(element);
+//     });
+//   });
 
-// - GET (https://cats.petiteweb.dev/api/single/:user/show) - отобразить всех котиков
-// - GET (https://cats.petiteweb.dev/api/single/:user/ids) - отобразить все возможные айди котиков
-// - GET (https://cats.petiteweb.dev/api/single/:user/show/:id) - отобразить конкретного котика
-// - POST (https://cats.petiteweb.dev/api/single/:user/add) - добавить котика
-// - PUT (https://cats.petiteweb.dev/api/single/:user/update/:id) - изменить информацию о котике
-// - DELETE (https://cats.petiteweb.dev/api/single/:user/delete/:id)- удалить котика из базы данных
-
-// const CONFIG_API = {
-//   url: "https://cats.petiteweb.dev/api/single/:user",
-//   headers: {
-//     "Content-type": "aplication/json",
-//   },
-// };
-
-// class API {
-//   constructor(config) {
-//     this._url = config.url;
-//     this._headers = config.headers;
-//   }
-
-//   _onResponse(res) {
-//     return res.ok
-//       ? res.json()
-//       : Promise.reject({ ...res, message: "Error server" });
-//   }
-
-//   getAllCats() {
-//     return fetch(`${this._url}/show`, {
-//       method: "GET",
-//     }).then(this._onResponse);
-//   }
-
-//   addNewCat(data) {
-//     return fetch(`${this._url}/add`, {
-//       method: "POST",
-//       body: JSON.stringify(data),
-//       headers: this._headers,
-//     }).then(this._onResponse);
-//   }
+// // Пример отправки POST запроса:
+// async function postData(url = "", data = {}) {
+//   // Default options are marked with *
+//   const response = await fetch(url, {
+//     method: "POST",
+//     mode: "cors",
+//     cache: "no-cache",
+//     credentials: "same-origin",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     redirect: "follow", // manual, *follow, error
+//     referrerPolicy: "no-referrer", // no-referrer, *client
+//     body: JSON.stringify(data), // body data type must match "Content-Type" header
+//   });
+//   return await response.json(); // parses JSON response into native JavaScript objects
 // }
 
-// const api = new API(CONFIG_API);
+// postData("https://cats.petiteweb.dev/api/single/:user/add", {
+//   id: 907,
+//   name: "Хозяин",
+//   image:
+//     "https://kartinkin.net/uploads/posts/2022-05/1652230618_21-kartinkin-net-p-kartinki-rizhego-kota-23.jpg",
+//   age: 5,
+//   rate: 6,
+//   description: "Я хозяин в этом доме",
+// }).then((data) => {
+//   console.log(data); // JSON data parsed by `response.json()` call
+// });
+
 const url = "https://cats.petiteweb.dev/api/single/:user"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
@@ -65,7 +63,6 @@ async function fetchHandler() {
 
       //add attribute data for lazy load
       // cardImg.setAttribute("data", element.image);
-      // console.log(cardImg);
 
       // checking that element.rate is not empty
       if (element.image === undefined) {
@@ -115,20 +112,45 @@ async function fetchHandler() {
   } catch (error) {
     console.log(error);
   }
+}
+fetchHandler();
 
-  // POST API
-  // let fetchData = {
-  //   method: "POST",
-  //   body: data,
-  //   headers: new Headers(),
-  // };
+const idForm = document.querySelector("#id");
+const ageForm = document.querySelector("#age");
+const nameForm = document.querySelector("#name");
+const rateForm = document.querySelector("#rate");
+const descriptionForm = document.querySelector("#description");
+const checkboxForm = document.querySelector("#checkbox");
+const img_linkForm = document.querySelector("#img_link");
+const catsBtn = document.querySelector("#catsBtn");
 
-  // try {
-  //   const newCat = await fetch(`${url}/add`, fetchData);
-  //   const dataCat = await newCat.json();
-  // } catch (error) {
-  //   console.log(error);
-  // }
+// Пример отправки POST запроса:
+async function postData(url = "", data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return await response.json();
 }
 
-fetchHandler();
+const formElement = document.querySelector(".form"); // извлекаем элемент формы
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(formElement);
+  postData("https://cats.petiteweb.dev/api/single/:user/add", {
+    id: Number(formData.get("id")),
+    age: formData.get("age"),
+    name: formData.get("name"),
+    rate: formData.get("rate"),
+    description: formData.get("description"),
+    favourite: formData.get("favourite"),
+    image: formData.get("image"),
+  }).then((data) => {
+    alert(data.message);
+    console.log(data);
+  });
+});
