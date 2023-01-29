@@ -44,7 +44,7 @@ const url = "https://cats.petiteweb.dev/api/single/:user"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
 const templateCardCat = document.querySelector("#card-template"); // template card cats
-let cardImg, cardName, cardDescription, cardYear, cardRating;
+let cardImg, cardName, cardDescription, cardYear, cardRating, cardFavorite;
 
 // function for request and add data for card
 async function fetchHandler() {
@@ -54,6 +54,7 @@ async function fetchHandler() {
     const data = await response.json();
 
     data.forEach((element) => {
+      console.log(element);
       let contentCatsCard = templateCardCat.content
         .querySelector(".card")
         .cloneNode(true);
@@ -105,7 +106,12 @@ async function fetchHandler() {
         cardRating.textContent = element.rate + "/10";
       }
 
-      // console.log(element.rate);
+      cardFavorite = templateCardCat.content.querySelector(".card__heart img");
+      if (element.favorite === true) {
+        cardFavorite = cardFavorite.style.display = "block";
+      } else {
+        cardFavorite = cardFavorite.style.display = "none";
+      }
 
       listCats.append(contentCatsCard);
     });
@@ -147,7 +153,7 @@ formElement.addEventListener("submit", (e) => {
     name: formData.get("name"),
     rate: formData.get("rate"),
     description: formData.get("description"),
-    favourite: formData.get("favourite"),
+    favorite: formData.get("favorite"),
     image: formData.get("image"),
   }).then((data) => {
     alert(data.message);
