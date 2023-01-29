@@ -142,6 +142,12 @@ async function postData(url = "", data = {}) {
     },
     body: JSON.stringify(data),
   });
+
+  // if (response.status !== 400) {
+  //   location.reload();
+  // } else {
+  //   console.log(response.status);
+  // }
   return await response.json();
 }
 
