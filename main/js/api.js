@@ -44,7 +44,13 @@ const url = "https://cats.petiteweb.dev/api/single/:user"; // our link api
 
 const listCats = document.querySelector(".list__cats"); // list cats for card
 const templateCardCat = document.querySelector("#card-template"); // template card cats
-let cardImg, cardName, cardDescription, cardYear, cardRating, cardFavorite;
+let contentCatsCard,
+  cardImg,
+  cardName,
+  cardDescription,
+  cardYear,
+  cardRating,
+  cardFavorite;
 
 // function for request and add data for card
 async function fetchHandler() {
@@ -54,11 +60,6 @@ async function fetchHandler() {
     const data = await response.json();
 
     data.forEach((element) => {
-      console.log(element);
-      let contentCatsCard = templateCardCat.content
-        .querySelector(".card")
-        .cloneNode(true);
-
       // transfer data for our tag
       cardImg = templateCardCat.content.querySelector(".card__img img");
 
@@ -66,7 +67,6 @@ async function fetchHandler() {
       // cardImg.setAttribute("data", element.image);
 
       // checking that element.rate is not empty
-      console.log(element.image);
       if (element.image === undefined || element.image.length == 0) {
         cardImg.src = "main/img/photo/cat-1.png";
       } else {
@@ -75,7 +75,7 @@ async function fetchHandler() {
 
       cardName = templateCardCat.content.querySelector(".card__name");
       // checking that element.name is not empty
-      if (element.name === undefined) {
+      if (element.name === undefined || element.name.length == 0) {
         cardName.textContent = "Жульен";
       } else {
         cardName.textContent = element.name;
@@ -84,7 +84,10 @@ async function fetchHandler() {
       cardDescription =
         templateCardCat.content.querySelector(".card__description");
       // checking that element.age is not empty
-      if (element.description === undefined) {
+      if (
+        element.description === undefined ||
+        element.description.length == 0
+      ) {
         cardDescription.textContent =
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum sed, dolore exercitationem quas aliquam modi facilis. Ipsum sed, dolore exercitationem quas aliquam modi facilis.";
       } else {
@@ -93,7 +96,7 @@ async function fetchHandler() {
 
       // checking that element.age is not empty
       cardYear = templateCardCat.content.querySelector(".card__year");
-      if (element.age === undefined) {
+      if (element.age === undefined || element.age === null) {
         cardYear.textContent = "0 years";
       } else {
         cardYear.textContent = element.age + " years";
@@ -101,7 +104,7 @@ async function fetchHandler() {
 
       cardRating = templateCardCat.content.querySelector(".card__rating");
       // checking that element.rate is not empty
-      if (element.rate === undefined) {
+      if (element.rate === undefined || element.rate === null) {
         cardRating.textContent = "0/10";
       } else {
         cardRating.textContent = element.rate + "/10";
@@ -109,16 +112,20 @@ async function fetchHandler() {
 
       cardFavorite = templateCardCat.content.querySelector(".card__heart img");
       if (element.favorite === true) {
-        cardFavorite = cardFavorite.style.display = "block";
+        templateCardCat.content.querySelector(".card__heart").style.display =
+          "block";
       } else {
-        cardFavorite = cardFavorite.style.display = "none";
+        templateCardCat.content.querySelector(".card__heart").style.display =
+          "none";
       }
 
+      contentCatsCard = templateCardCat.content
+        .querySelector(".card")
+        .cloneNode(true);
+
       listCats.append(contentCatsCard);
+      console.log(element);
     });
-    console.log(
-      "Для преподователя >>>>> Котики выводятся на страницу, но вывод не совсем корректный. Выводится первый котик из шаблона а не из базы и не выводится последний котик из базы. Пока что не пофиксил. Кот добавляется в базу и выводится из базы, но необходимо сделать +1, чтобы вывелся предыдущий <<<<<"
-    );
   } catch (error) {
     console.log(error);
   }
@@ -153,5 +160,6 @@ formElement.addEventListener("submit", (e) => {
   }).then((data) => {
     alert(data.message);
     console.log(data);
+    location.reload();
   });
 });

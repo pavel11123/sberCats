@@ -7,6 +7,7 @@
   -ms-border-radius: rem(10);
   -o-border-radius: rem(10);
   gap: rem(15);
+  overflow: hidden;
 }
 
 .card__img {
@@ -49,6 +50,7 @@
 .card__description {
   flex: 1 1 auto;
   font-size: rem(14);
+  overflow: hidden;
 }
 .card__info {
   flex: 0 0 auto;

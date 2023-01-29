@@ -344,6 +344,7 @@ hr {
   -ms-border-radius: 0.625rem;
   -o-border-radius: 0.625rem;
   gap: 0.9375rem;
+  overflow: hidden;
 }
 
 .card__img {
@@ -387,6 +388,7 @@ hr {
 .card__description {
   flex: 1 1 auto;
   font-size: 0.875rem;
+  overflow: hidden;
 }
 
 .card__info {
