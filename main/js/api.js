@@ -66,7 +66,8 @@ async function fetchHandler() {
       // cardImg.setAttribute("data", element.image);
 
       // checking that element.rate is not empty
-      if (element.image === undefined) {
+      console.log(element.image);
+      if (element.image === undefined || element.image.length == 0) {
         cardImg.src = "main/img/photo/cat-1.png";
       } else {
         cardImg.src = element.image;
@@ -115,20 +116,14 @@ async function fetchHandler() {
 
       listCats.append(contentCatsCard);
     });
+    console.log(
+      "Для преподователя >>>>> Котики выводятся на страницу, но вывод не совсем корректный. Выводится первый котик из шаблона а не из базы и не выводится последний котик из базы. Пока что не пофиксил. Кот добавляется в базу и выводится из базы, но необходимо сделать +1, чтобы вывелся предыдущий <<<<<"
+    );
   } catch (error) {
     console.log(error);
   }
 }
 fetchHandler();
-
-const idForm = document.querySelector("#id");
-const ageForm = document.querySelector("#age");
-const nameForm = document.querySelector("#name");
-const rateForm = document.querySelector("#rate");
-const descriptionForm = document.querySelector("#description");
-const checkboxForm = document.querySelector("#checkbox");
-const img_linkForm = document.querySelector("#img_link");
-const catsBtn = document.querySelector("#catsBtn");
 
 // Пример отправки POST запроса:
 async function postData(url = "", data = {}) {
